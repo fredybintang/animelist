@@ -1,22 +1,22 @@
+import { getDetailAnime } from '@/app/libs/api';
 import VideoPlayer from '@/components/Utilities/VideoPlayer';
 import Image from 'next/image';
 import React from 'react'
 
 const Page = async ({ params }) => {
     const { id } = params
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${id}`);
-    const animeById = await response.json();
-    const anime = animeById.data
-    // console.log(animeById.data.images.jpg.large_image_url)
+    const response = await getDetailAnime("manga" , `${id}`)
+    const manga = response.data
+    // console.log(manga)
 
     return (
         <div className='container mx-auto md:px-1 px-4 mb-7 mt-3'>
             <div className='flex md:flex-row flex-col md:items-start items-center justify-center gap-4 py-3 overflow-x-hidden'>
                 <div className='image-banner'>
-                    <Image src={anime.images.jpg.large_image_url} width={350} height={350} />
+                    <Image src={manga.images.jpg.large_image_url} width={350} height={350} />
                 </div>
                 <div className='details'>
-                    <h1 className='font-bold text-xl md:text-left text-center'>{anime.title}</h1>
+                    <h1 className='font-bold text-xl md:text-left text-center'>{manga.title}</h1>
                     <div className='rating md:hidden block my-4'>
                         <table class="table-auto">
                             <thead>
@@ -28,9 +28,9 @@ const Page = async ({ params }) => {
                             </thead>
                             <tbody className='border border-t-0 border-black'>
                                 <tr>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.score}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.rank}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.popularity}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.score}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.rank}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.popularity}</td>
                                 </tr>
                             </tbody>
                             <thead>
@@ -42,14 +42,14 @@ const Page = async ({ params }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.favorites}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.scored_by}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.members}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.favorites}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.scored_by}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.members}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p className='text-justify'>{anime.synopsis}</p>
+                    <p className='text-justify'>{manga.synopsis}</p>
                 </div>
                 <div className='rating md:block hidden'>
                     <table class="table-auto">
@@ -61,8 +61,8 @@ const Page = async ({ params }) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className='text-center'>{anime.score}</td>
-                                <td className='text-center'>{anime.rank}</td>
+                                <td className='text-center'>{manga.score}</td>
+                                <td className='text-center'>{manga.rank}</td>
                             </tr>
                         </tbody>
                         <thead>
@@ -73,8 +73,8 @@ const Page = async ({ params }) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className='text-center'>{anime.favorites}</td>
-                                <td className='text-center'>{anime.members}</td>
+                                <td className='text-center'>{manga.favorites}</td>
+                                <td className='text-center'>{manga.members}</td>
                             </tr>
                         </tbody>
                         <thead>
@@ -85,16 +85,16 @@ const Page = async ({ params }) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className='text-center'>{anime.popularity}</td>
-                                <td className='text-center'>{anime.scored_by}</td>
+                                <td className='text-center'>{manga.popularity}</td>
+                                <td className='text-center'>{manga.scored_by}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div>
-                <VideoPlayer youtubeId={anime.trailer.youtube_id} />
-            </div>
+            {/* <div>
+                <VideoPlayer youtubeId={manga.trailer.youtube_id} />
+            </div> */}
         </div>
     )
 }

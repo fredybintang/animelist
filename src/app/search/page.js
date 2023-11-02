@@ -9,7 +9,7 @@ const Page = async () => {
   return (
     <div className="mx-5 py-3">
       <section>
-        <Header title="Populer" hrefLink="/populer" />
+        <Header title="Anime" hrefLink="/all-anime" />
         <AnimeList api={populer} />
       </section>
     </div>

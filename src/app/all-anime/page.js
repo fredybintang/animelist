@@ -1,6 +1,6 @@
 "use client"
 
-import AllPopuler from "@/components/AnimeList/allList";
+import AllList from "@/components/AnimeList/allList";
 import Header from "@/components/AnimeList/header";
 import Pagination from "@/components/Utilities/Pagination";
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ const Page = () => {
       <div className="mx-5 py-3">
         <section>
           <Header title="All Anime List" />
-          <AllPopuler api={anime} />
+          <AllList api={anime} />
           <Pagination page={page} setPage={setPage} lastPage={anime.pagination?.last_visible_page} />
         </section>
       </div>
