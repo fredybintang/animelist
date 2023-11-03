@@ -21,8 +21,15 @@ img {
 
 .cards {
     min-height: 370px;
+    max-height: 400px;
     border: 1px solid rgb(226, 222, 222);
     border-radius: 15px;
+}
+
+.cards h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .cards:hover {

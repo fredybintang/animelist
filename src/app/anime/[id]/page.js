@@ -29,8 +29,8 @@ const Page = async ({ params }) => {
                             <tbody className='border border-t-0 border-black'>
                                 <tr>
                                     <td className='text-center border border-e-1 border-t-0 border-black'>{anime.score}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.rank}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{anime.popularity}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>#{anime.rank}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>#{anime.popularity}</td>
                                 </tr>
                             </tbody>
                             <thead>
@@ -62,7 +62,7 @@ const Page = async ({ params }) => {
                         <tbody>
                             <tr>
                                 <td className='text-center'>{anime.score}</td>
-                                <td className='text-center'>{anime.rank}</td>
+                                <td className='text-center'>#{anime.rank}</td>
                             </tr>
                         </tbody>
                         <thead>
@@ -85,7 +85,7 @@ const Page = async ({ params }) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className='text-center'>{anime.popularity}</td>
+                                <td className='text-center'>#{anime.popularity}</td>
                                 <td className='text-center'>{anime.scored_by}</td>
                             </tr>
                         </tbody>

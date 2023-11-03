@@ -1,4 +1,4 @@
-import { getDetailAnime } from '@/app/libs/api';
+import { getDetailAnime } from '@/libs/api';
 import VideoPlayer from '@/components/Utilities/VideoPlayer';
 import Image from 'next/image';
 import React from 'react'
@@ -29,8 +29,8 @@ const Page = async ({ params }) => {
                             <tbody className='border border-t-0 border-black'>
                                 <tr>
                                     <td className='text-center border border-e-1 border-t-0 border-black'>{manga.score}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.rank}</td>
-                                    <td className='text-center border border-e-1 border-t-0 border-black'>{manga.popularity}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>#{manga.rank}</td>
+                                    <td className='text-center border border-e-1 border-t-0 border-black'>#{manga.popularity}</td>
                                 </tr>
                             </tbody>
                             <thead>
@@ -62,7 +62,7 @@ const Page = async ({ params }) => {
                         <tbody>
                             <tr>
                                 <td className='text-center'>{manga.score}</td>
-                                <td className='text-center'>{manga.rank}</td>
+                                <td className='text-center'>#{manga.rank}</td>
                             </tr>
                         </tbody>
                         <thead>
@@ -85,7 +85,7 @@ const Page = async ({ params }) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className='text-center'>{manga.popularity}</td>
+                                <td className='text-center'>#{manga.popularity}</td>
                                 <td className='text-center'>{manga.scored_by}</td>
                             </tr>
                         </tbody>

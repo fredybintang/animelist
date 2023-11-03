@@ -19,10 +19,10 @@ const AnimeList = ({ api, genre }) => {
                         {api.data.map(data => {
                             return (
                                 <SwiperSlide>
-                                    <div key={data.mal_id} className="cards shadow-xl">
+                                    <div key={data.mal_id} className="cards cursor-pointer shadow-xl">
                                         <Link href={`/${genre}/${data.mal_id}`} className="cursor-pointer">
                                             <Image src={data.images.webp.image_url} alt="..." width={350} height={350} className="w-full max-h-64 object-cover" />
-                                            <h3 className="font-bold md:text-xl text-md p-4">{data.title}</h3>
+                                            <h3 className="font-bold md:text-xl text-md py-2 px-3">{data.title}</h3>
                                         </Link>
                                     </div>
                                 </SwiperSlide>
